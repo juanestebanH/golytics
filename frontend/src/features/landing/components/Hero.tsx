@@ -27,7 +27,9 @@ export default function Hero() {
     const mm = gsap.matchMedia();
 
     mm.add('(prefers-reduced-motion: no-preference)', () => {
-      const tl = gsap.timeline({ defaults: { duration: 0.7, ease: 'power2.out' } });
+      const tl = gsap.timeline({
+        defaults: { duration: 0.7, ease: 'power2.out' },
+      });
 
       tl.fromTo(badgeRef.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0 })
         .fromTo(
@@ -63,11 +65,11 @@ export default function Hero() {
       </div>
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-48 left-1/2 h-[28rem] w-[44rem] -translate-x-1/2 rounded-full bg-violet-600/20 blur-3xl"
+        className="pointer-events-none absolute -top-48 left-1/2 h-112 w-176 -translate-x-1/2 rounded-full bg-violet-600/20 blur-3xl"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-24 left-1/2 h-40 w-[36rem] -translate-x-1/2 rounded-full bg-indigo-500/15 blur-3xl"
+        className="pointer-events-none absolute -top-24 left-1/2 h-40 w-xl -translate-x-1/2 rounded-full bg-indigo-500/15 blur-3xl"
       />
 
       <div className="relative z-10 mx-auto flex max-w-3xl flex-col items-center px-6 pb-24 pt-32 text-center">
@@ -75,8 +77,8 @@ export default function Hero() {
           ref={badgeRef}
           className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs font-medium"
         >
-          <span className="size-1.5 rounded-full bg-gradient-to-r from-indigo-400 to-violet-400" />
-          <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text font-bold text-transparent">
+          <span className="size-1.5 rounded-full bg-linear-to-r from-indigo-400 to-violet-400" />
+          <span className="bg-linear-to-r from-indigo-400 to-violet-400 bg-clip-text font-bold text-transparent">
             Golytics
           </span>
           <span className="text-zinc-600">·</span>
@@ -88,7 +90,7 @@ export default function Hero() {
           className="mt-8 text-4xl font-bold leading-tight tracking-tight text-zinc-100 sm:text-6xl"
         >
           Análisis cuantitativo de apuestas deportivas, impulsado por un{' '}
-          <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
             agente de IA
           </span>
         </h1>
@@ -97,9 +99,10 @@ export default function Hero() {
           ref={subheadlineRef}
           className="mt-6 max-w-xl text-lg leading-relaxed text-zinc-400"
         >
-          Nuestro agente decide qué fuentes consultar: analiza la forma reciente de
-          los equipos, compara cuotas de múltiples casas y calcula el valor
-          esperado real de cada apuesta — mostrándote cada paso del razonamiento.
+          Nuestro agente decide qué fuentes consultar: analiza la forma reciente
+          de los equipos, compara cuotas de múltiples casas y calcula el valor
+          esperado real de cada apuesta — mostrándote cada paso del
+          razonamiento.
         </p>
 
         <div ref={botonesRef} className="mt-10 flex flex-col gap-3 sm:flex-row">
@@ -108,7 +111,7 @@ export default function Hero() {
             to="/analizar"
             onMouseEnter={() => animarEscala(ctaRef.current, 1.03)}
             onMouseLeave={() => animarEscala(ctaRef.current, 1)}
-            className="rounded-xl bg-gradient-to-r from-indigo-500 to-violet-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-violet-500/25 transition-[filter,box-shadow] hover:brightness-110 hover:shadow-violet-500/40"
+            className="rounded-xl bg-linear-to-r from-indigo-500 to-violet-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-violet-500/25 transition-[filter,box-shadow] hover:brightness-110 hover:shadow-violet-500/40"
           >
             Comenzar análisis
           </Link>

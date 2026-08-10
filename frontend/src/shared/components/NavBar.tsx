@@ -47,7 +47,7 @@ export default function NavBar() {
       <div className="mx-auto flex max-w-3xl items-center justify-between gap-4 rounded-2xl bg-zinc-950/80 px-5 py-3 shadow-lg shadow-black/20 backdrop-blur-xl">
         <Link
           to="/"
-          className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-sm font-bold tracking-tight text-transparent transition-opacity hover:opacity-80"
+          className="bg-linear-to-r from-indigo-400 to-violet-400 bg-clip-text text-sm font-bold tracking-tight text-transparent transition-opacity hover:opacity-80"
         >
           Golytics
         </Link>

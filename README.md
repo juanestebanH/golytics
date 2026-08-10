@@ -19,10 +19,7 @@ razona sobre los resultados que va obteniendo, mostrando cada paso en tiempo rea
 - [Arquitectura](#arquitectura)
 - [Stack técnico](#stack-técnico)
 - [Estructura del proyecto](#estructura-del-proyecto)
-- [Setup local](#setup-local)
 - [Decisiones técnicas destacadas](#decisiones-técnicas-destacadas)
-- [Limitaciones conocidas](#limitaciones-conocidas)
-- [Roadmap / mejoras futuras](#roadmap--mejoras-futuras)
 
 ---
 
@@ -66,12 +63,12 @@ espera al resultado final para mostrar progreso.
 
 ### Las 4 herramientas del agente
 
-| Herramienta | Fuente | Qué hace |
-|---|---|---|
-| `buscar_partido` | football-data.org | Ubica el partido por nombres de equipo (matching AND + normalización de acentos) |
-| `obtener_forma_reciente` | football-data.org | Últimos N resultados (W/D/L, goles) de un equipo |
-| `obtener_cuotas` | the-odds-api.com | Cuotas de hándicap asiático de varias casas de apuestas |
-| `calcular_valor_esperado` | función pura, sin API externa | `EV = (probabilidad_estimada × cuota) - 1` |
+| Herramienta               | Fuente                        | Qué hace                                                                         |
+| ------------------------- | ----------------------------- | -------------------------------------------------------------------------------- |
+| `buscar_partido`          | football-data.org             | Ubica el partido por nombres de equipo (matching AND + normalización de acentos) |
+| `obtener_forma_reciente`  | football-data.org             | Últimos N resultados (W/D/L, goles) de un equipo                                 |
+| `obtener_cuotas`          | the-odds-api.com              | Cuotas de hándicap asiático de varias casas de apuestas                          |
+| `calcular_valor_esperado` | función pura, sin API externa | `EV = (probabilidad_estimada × cuota) - 1`                                       |
 
 ### Manejo de errores (3 niveles)
 
@@ -92,17 +89,17 @@ espera al resultado final para mostrar progreso.
 
 ## Stack técnico
 
-| Capa | Tecnología | Por qué |
-|---|---|---|
-| LLM del agente | Groq (Llama 3.3 70B / 3.1 8B) | Tool calling nativo, free tier generoso, compatible con SDK de OpenAI |
-| Backend | Python + FastAPI | — |
-| Datos de partidos | football-data.org (free tier) | 12 competiciones principales |
-| Cuotas | the-odds-api.com (free tier) | Incluye mercado de hándicap asiático |
-| Persistencia | SQLite | Historial de análisis, scopeado por session_id |
-| Frontend | React + Vite + TypeScript + Tailwind | Arquitectura feature-based |
-| Animaciones | GSAP + ScrollTrigger | 100% gratis desde 2025 (adquisición por Webflow) |
-| 3D (landing) | React Three Fiber + drei | Campo de partículas de fondo |
-| Streaming | Server-Sent Events (SSE) | Razonamiento del agente en tiempo real |
+| Capa              | Tecnología                           | Por qué                                                               |
+| ----------------- | ------------------------------------ | --------------------------------------------------------------------- |
+| LLM del agente    | Groq (Llama 3.3 70B / 3.1 8B)        | Tool calling nativo, free tier generoso, compatible con SDK de OpenAI |
+| Backend           | Python + FastAPI                     | —                                                                     |
+| Datos de partidos | football-data.org (free tier)        | 12 competiciones principales                                          |
+| Cuotas            | the-odds-api.com (free tier)         | Incluye mercado de hándicap asiático                                  |
+| Persistencia      | SQLite                               | Historial de análisis, scopeado por session_id                        |
+| Frontend          | React + Vite + TypeScript + Tailwind | Arquitectura feature-based                                            |
+| Animaciones       | GSAP + ScrollTrigger                 | 100% gratis desde 2025 (adquisición por Webflow)                      |
+| 3D (landing)      | React Three Fiber + drei             | Campo de partículas de fondo                                          |
+| Streaming         | Server-Sent Events (SSE)             | Razonamiento del agente en tiempo real                                |
 
 ---
 
@@ -155,10 +152,6 @@ Regla seguida en todo el proyecto: `pages/` orquesta (llama hooks, decide qué
 renderizar), `components/` solo dibuja (recibe props, sin fetch ni lógica de
 negocio).
 
-
-
-
-
 ---
 
 ## Decisiones técnicas destacadas
@@ -170,7 +163,7 @@ salida.
 
 **Matching de equipos: AND, no OR + normalización de acentos.** Un bug real detectado
 en desarrollo: buscar "Flamengo" + "Palmeiras" devolvía un partido de Flamengo contra
-un tercer equipo, porque el matching solo exigía que *uno* de los dos coincidiera.
+un tercer equipo, porque el matching solo exigía que _uno_ de los dos coincidiera.
 Corregido para exigir coincidencia simultánea de ambos equipos en el mismo partido, y
 normalizar diacríticos (`Vitória` vs `Vitoria`) antes de comparar — distintas APIs
 devuelven el mismo equipo con o sin tilde.
@@ -189,7 +182,6 @@ alcance: suficiente para el propósito del proyecto, evita construir un sistema 
 login completo que no aporta al objetivo central (el agente).
 
 ---
-
 
 ## Disclaimer
 
