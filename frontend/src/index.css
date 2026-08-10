@@ -1,0 +1,26 @@
+@import 'tailwindcss';
+
+:root {
+  color-scheme: dark;
+  --cursor-balon: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='24'%20height='24'%20viewBox='0%200%2024%2024'%3E%3Ccircle%20cx='12'%20cy='12'%20r='10'%20fill='%23ffffff'%20stroke='%2318181b'%20stroke-width='1.5'/%3E%3Cpolygon%20points='12,8.2%2015.3,10.1%2014.4,13.9%209.6,13.9%208.7,10.1'%20fill='%2318181b'/%3E%3Cpolygon%20points='12,1.6%2013.7,2.7%2013.2,4.6%2010.8,4.6%2010.3,2.7'%20fill='%2318181b'/%3E%3Cpolygon%20points='12,22.4%2013.7,21.3%2013.2,19.4%2010.8,19.4%2010.3,21.3'%20fill='%2318181b'/%3E%3Cpolygon%20points='1.6,12%202.7,10.3%204.6,10.8%204.6,13.2%202.7,13.7'%20fill='%2318181b'/%3E%3Cpolygon%20points='22.4,12%2021.3,10.3%2019.4,10.8%2019.4,13.2%2021.3,13.7'%20fill='%2318181b'/%3E%3C/svg%3E")
+    12 12,
+    auto;
+}
+
+body {
+  margin: 0;
+  background-color: #09090b;
+  cursor: var(--cursor-balon);
+}
+
+a,
+button,
+select,
+input,
+[role='button'] {
+  cursor: pointer;
+}
+
+#root {
+  min-height: 100svh;
+}
