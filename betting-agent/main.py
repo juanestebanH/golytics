@@ -37,7 +37,7 @@ class AnalizarRequest(BaseModel):
 DEFAULT_SESSION_ID = "sin-sesion"
 
 
-@app.get("/health")
+@app.api_route("/health", methods=["GET", "HEAD"])
 def health():
     return {"status": "ok"}
 
