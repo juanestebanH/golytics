@@ -154,35 +154,6 @@ negocio).
 
 ---
 
-## Decisiones técnicas destacadas
-
-**EV como herramienta, no como razonamiento del LLM.** Los modelos de lenguaje no son
-confiables haciendo aritmética exacta. Exponer el cálculo como una función pura
-determinística garantiza que el número sea siempre correcto y trazable en el JSON de
-salida.
-
-**Matching de equipos: AND, no OR + normalización de acentos.** Un bug real detectado
-en desarrollo: buscar "Flamengo" + "Palmeiras" devolvía un partido de Flamengo contra
-un tercer equipo, porque el matching solo exigía que _uno_ de los dos coincidiera.
-Corregido para exigir coincidencia simultánea de ambos equipos en el mismo partido, y
-normalizar diacríticos (`Vitória` vs `Vitoria`) antes de comparar — distintas APIs
-devuelven el mismo equipo con o sin tilde.
-
-**Nunca inventar datos ante fallos parciales.** Se detectó en pruebas que el modelo,
-ante un timeout de una herramienta, completaba el campo faltante con un valor
-plausible pero inventado — presentado con `confianza: alta` como si fuera real. Se
-corrigió con 3 capas: reintento automático, instrucción explícita en el prompt sobre
-qué hacer ante error (usar `null`, bajar confianza, explicarlo), y una validación
-defensiva en código que no depende únicamente de que el modelo obedezca la
-instrucción.
-
-**Session ID sin autenticación real.** El historial se scopea por un UUID generado en
-el navegador (localStorage), no por una cuenta de usuario. Decisión consciente de
-alcance: suficiente para el propósito del proyecto, evita construir un sistema de
-login completo que no aporta al objetivo central (el agente).
-
----
-
 ## Disclaimer
 
 Este proyecto es una herramienta analítica y educativa de estadística deportiva. No
