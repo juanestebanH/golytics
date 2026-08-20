@@ -19,7 +19,7 @@ FOOTBALL_DATA_API_KEY = os.getenv("FOOTBALL_DATA_API_KEY")
 ODDS_API_KEY = os.getenv("ODDS_API_KEY")
 
 GROQ_BASE_URL = "https://api.groq.com/openai/v1"
-GROQ_MODEL = "llama-3.3-70b-versatile"
+GROQ_MODEL = "openai/gpt-oss-120b"
 
 FOOTBALL_DATA_BASE_URL = "https://api.football-data.org/v4"
 

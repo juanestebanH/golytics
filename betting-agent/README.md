@@ -1,7 +1,7 @@
 # Betting Agent
 
 Backend en Python con FastAPI para un agente de IA que analiza partidos de fútbol
-usando tool calling con Groq (`llama-3.3-70b-versatile`).
+usando tool calling con Groq (`openai/gpt-oss-120b`).
 
 ## Requisitos
 
