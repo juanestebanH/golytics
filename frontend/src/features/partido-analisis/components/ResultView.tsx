@@ -34,7 +34,13 @@ export default function ResultView({ resultado }: ResultViewProps) {
       gsap.fromTo(
         contenedorRef.current,
         { opacity: 0, y: 10 },
-        { opacity: 1, y: 0, duration: 0.4, ease: 'power1.out', overwrite: true },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.4,
+          ease: 'power1.out',
+          overwrite: true,
+        },
       );
     });
   });
@@ -43,7 +49,9 @@ export default function ResultView({ resultado }: ResultViewProps) {
     return (
       <div ref={contenedorRef} className="space-y-4">
         <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-4">
-          <p className="text-sm font-medium text-zinc-200">Partido no encontrado</p>
+          <p className="text-sm font-medium text-zinc-200">
+            Partido no encontrado
+          </p>
           <p className="mt-2 text-sm leading-relaxed text-zinc-500">
             {resultado.justificacion}
           </p>
@@ -58,7 +66,9 @@ export default function ResultView({ resultado }: ResultViewProps) {
       <div ref={contenedorRef} className="space-y-4">
         <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-4">
           <div className="flex items-center gap-2">
-            <p className="text-sm font-medium text-zinc-200">Análisis incompleto</p>
+            <p className="text-sm font-medium text-zinc-200">
+              Análisis incompleto
+            </p>
             <span className="rounded-full border border-zinc-700 bg-zinc-800 px-2.5 py-0.5 text-xs text-zinc-400">
               Sin recomendación
             </span>

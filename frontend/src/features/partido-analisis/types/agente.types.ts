@@ -9,7 +9,7 @@ export interface PartidoProximo {
 
 export interface CuotaComparada {
   casa: string;
-  hándicap: number;
+  handicap: number;
   cuota: number;
 }
 
@@ -32,6 +32,11 @@ export interface ResultadoAnalisis {
 
 export type EventoSSE =
   | { tipo: 'tool_call'; herramienta: string; argumentos: string }
-  | { tipo: 'tool_result'; herramienta: string; exito?: boolean; resumen: string }
+  | {
+      tipo: 'tool_result';
+      herramienta: string;
+      exito?: boolean;
+      resumen: string;
+    }
   | { tipo: 'resultado_final'; data: ResultadoAnalisis }
   | { tipo: 'error'; mensaje: string };

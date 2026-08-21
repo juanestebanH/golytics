@@ -27,10 +27,10 @@ export default function OddsTable({ cuotas }: OddsTableProps) {
         </thead>
         <tbody className="divide-y divide-zinc-800 bg-zinc-900/60">
           {ordenadas.map((fila, index) => (
-            <tr key={`${fila.casa}-${fila.hándicap}-${index}`}>
+            <tr key={`${fila.casa}-${fila.handicap}-${index}`}>
               <td className="px-3 py-2 text-zinc-200">{fila.casa}</td>
               <td className="px-3 py-2 text-zinc-400">
-                {formatearHandicap(fila.hándicap)}
+                {formatearHandicap(fila.handicap)}
               </td>
               <td
                 className={`px-3 py-2 text-right font-semibold ${
